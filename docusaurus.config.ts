@@ -50,8 +50,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
@@ -97,9 +97,9 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: '文档',
+          label: 'Docs',
         },
-        { to: '/blog', label: '博客', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/readai-team/aibrary-docs',
           label: 'GitHub',
@@ -111,16 +111,16 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: '文档',
+          title: 'Docs',
           items: [
             {
-              label: '快速开始',
+              label: 'Quick Start',
               to: '/docs/intro',
             },
           ],
         },
         {
-          title: '社区',
+          title: 'Community',
           items: [
             {
               label: 'GitHub',
@@ -129,10 +129,10 @@ const config: Config = {
           ],
         },
         {
-          title: '更多',
+          title: 'More',
           items: [
             {
-              label: '博客',
+              label: 'Blog',
               to: '/blog',
             },
             {
