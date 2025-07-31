@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(touch:*)"
+      "Bash(touch:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(node:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
