@@ -375,15 +375,15 @@ flowchart TD
 
 ```typescript
 // 发起第三方授权
-GET /api/connect/{provider}
+GET /api/connect/[provider]
 // 授权回调
-GET /api/connect/{provider}/callback
+GET /api/connect/[provider]/callback
 // Web 登录
 Header: Authorization: Bearer Token
-GET /api/auth/{provider}/callback
+GET /api/auth/[provider]/callback
 // SDK 登录
 Header: Authorization: Bearer Token
-POST /api/auth/{provider}/callback
+POST /api/auth/[provider]/callback
 ```
 
 流程图
@@ -483,15 +483,15 @@ POST /api/auth/device
 
 App 用网页授权
 // 发起第三方授权
-GET /api/connect/{provider}?callback=/api/connect/{provider}?callback={API_BASE_URL}/api/auth/{provider}/redirect
+GET /api/connect/[provider]?callback=/api/connect/[provider]?callback=[API_BASE_URL]/api/auth/[provider]/redirect
 // 授权回调
-GET /api/connect/{provider}/callback
+GET /api/connect/[provider]/callback
 // Web 登录
 Header: Authorization: Bearer Token
 
 App 用 SDK 授权
 Header: Authorization: Bearer Token
-POST /api/auth/{provider}/callback
+POST /api/auth/[provider]/callback
 
 ```mermaid
 flowchart TD

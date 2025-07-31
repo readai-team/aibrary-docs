@@ -100,7 +100,7 @@ sequenceDiagram
     %% 兴趣收集流程
     Client->>API: GET /api/v1/configs/app_configs
     API-->>Client: 返回兴趣表单Key
-    Client->>API: GET /api/v1/interests/{key}
+    Client->>API: GET /api/v1/interests/[key]
     API-->>Client: 返回兴趣表单
     Client->>API: POST /api/v1/user-profiles
     Note over Client,API: 用户选择的兴趣标签
@@ -160,7 +160,7 @@ GET /api/v1/configs/app_configs
 
 ### 获取兴趣表单
 
-GET /api/v1/interests/{key}
+GET /api/v1/interests/[key]
 测试链接：https://api.dev.rd.ai/api/v1/interests/interest_form_v2
 
 ### 保存用户兴趣
