@@ -2,6 +2,16 @@
   "name": "@aibrary/docs",
   "version": "1.0.0",
   "private": true,
+  "description": "Aibrary Developer Documentation",
+  "author": "Aibrary Team",
+  "homepage": "https://readai-team.github.io/aibrary-docs/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/readai-team/aibrary-docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/readai-team/aibrary-docs/issues"
+  },
   "scripts": {
     "docusaurus": "docusaurus",
     "dev": "docusaurus start",
@@ -12,7 +22,10 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "docusaurus build --no-minify",
+    "start": "npm run dev",
+    "check": "npm run typecheck && npm run lint"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",
