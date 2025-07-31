@@ -1,0 +1,33 @@
+name: deploy
+
+on:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  # 准备
+  setup:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+
+  deploy-test:
+    needs: setup
+    runs-on: self-hosted
+    steps:
+      - name: build docker image for test
+        run: |
+          docker build -t aibrary-docs:test .
+      - name: push docker image to ECR
+        run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 928112001319.dkr.ecr.us-east-1.amazonaws.com
+          docker tag aibrary-docs:test 928112001319.dkr.ecr.us-east-1.amazonaws.com/aibrary/aibrary-docs:test
+          docker push 928112001319.dkr.ecr.us-east-1.amazonaws.com/aibrary/aibrary-docs:test
+  restart-docker-compose:
+    needs: deploy-test
+    runs-on: self-hosted
+    steps:
+      - name: restart docker-compose
+        run: |
+          docker compose -f /www/devops/deployments/test/aibrary-docs/docker-compose.yaml down
+          docker compose -f /www/devops/deployments/test/aibrary-docs/docker-compose.yaml up -d
